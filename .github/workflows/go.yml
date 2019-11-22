@@ -35,20 +35,30 @@ jobs:
         echo "::set-env name=GOPATH::$GOPATH"
         echo "::set-env name=GOBIN::$GOBIN"
 
-#     - name: Get dependencies
-#       run: |
+    - name: Install packages
+      run: |
+        curl https://glide.sh/get | sh
+
+     - name: Get dependencies
+       run: |
+        cd $REPOPATH
+        $GOPATH/bin/glide -v
+        $GOPATH/bin/glide update
 #         go get -v -t -d ./...
 #         if [ -f Gopkg.toml ]; then
 #             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 #             dep ensure
 #         fi
-    - name: Test
-      run: |
-        pwd && ls
-        cd $REPOPATH
-        ./test.sh
 
-#     - name: Build
-#       run: go build -v .
+     - name: Test
+       run: |
+         pwd && ls
+         cd $REPOPATH
+         ./test.sh
+
+     - name: Build
+       run: |
+         cd $REPOPATH
+         go build -v .
 
     
