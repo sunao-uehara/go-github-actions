@@ -43,7 +43,9 @@ jobs:
 #             dep ensure
 #         fi
     - name: Test
-      run: ./test.sh
+      run: |
+        pwd && ls
+        ./test.sh
 
 #     - name: Build
 #       run: go build -v .
