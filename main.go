@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	pdt "github.com/sunao-uehara/go-sandbox-for-ci/products"
+	pdt "github.com/sunao-uehara/go-github-actions/products"
 )
 
 // main
