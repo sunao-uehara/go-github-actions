@@ -34,8 +34,8 @@ jobs:
         echo "::set-env name=REPOPATH::$GOPATH/src/github.com/$GITHUB_REPOSITORY"
         echo "::set-env name=GOPATH::$GOPATH"
         echo "::set-env name=GOBIN::$GOBIN"
-        echo "::add-path:$GOPATH"
-        echo "::add-path:$GOBIN"
+        echo "::add-path::$GOPATH"
+        echo "::add-path::$GOBIN"
 
     - name: Install packages
       run: |
