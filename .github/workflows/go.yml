@@ -45,6 +45,7 @@ jobs:
     - name: Test
       run: |
         pwd && ls
+        cd $REPOPATH
         ./test.sh
 
 #     - name: Build
