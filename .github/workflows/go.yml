@@ -39,8 +39,8 @@ jobs:
       run: |
         curl https://glide.sh/get | sh
 
-     - name: Get dependencies
-       run: |
+    - name: Get dependencies
+      run: |
         cd $REPOPATH
         $GOPATH/bin/glide -v
         $GOPATH/bin/glide update
@@ -50,15 +50,15 @@ jobs:
 #             dep ensure
 #         fi
 
-     - name: Test
-       run: |
-         pwd && ls
-         cd $REPOPATH
-         ./test.sh
+    - name: Test
+      run: |
+        pwd && ls
+        cd $REPOPATH
+        ./test.sh
 
-     - name: Build
-       run: |
-         cd $REPOPATH
-         go build -v .
+    - name: Build
+      run: |
+        cd $REPOPATH
+        go build -v .
 
     
