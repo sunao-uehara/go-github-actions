@@ -25,8 +25,8 @@ jobs:
         export GOBIN=$(go env GOPATH)/bin
         echo $GOPATH
         echo $GOBIN
-        export PATH=$PATH:$GOPATH
-        export PATH=$PATH:$GOBIN
+        #export PATH=$PATH:$GOPATH
+        #export PATH=$PATH:$GOBIN
         mkdir -p $GOPATH/pkg
         mkdir -p $GOBIN
         mkdir -p $GOPATH/src/github.com/$GITHUB_REPOSITORY
