@@ -1,4 +1,4 @@
-name: Go
+name: Go test/build
 on: [push]
 jobs:
 
@@ -45,11 +45,6 @@ jobs:
         cd $REPOPATH
         $GOPATH/bin/glide -v
         $GOPATH/bin/glide update
-#         go get -v -t -d ./...
-#         if [ -f Gopkg.toml ]; then
-#             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-#             dep ensure
-#         fi
 
     - name: Test
       run: |
@@ -61,5 +56,7 @@ jobs:
       run: |
         cd $REPOPATH
         go build -v .
-
     
+    #- name: Deploy
+      #run: |
+        #cd $REPOPATH
