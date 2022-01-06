@@ -30,11 +30,11 @@ jobs:
         mkdir -p $GOPATH/src/github.com/$GITHUB_REPOSITORY
         mv $(pwd)/* $GOPATH/src/github.com/$GITHUB_REPOSITORY
         # use github actions' development toolkit to set ENV/PATH...etc
-        echo "::set-env name=REPOPATH::$GOPATH/src/github.com/$GITHUB_REPOSITORY"
-        echo "::set-env name=GOPATH::$GOPATH"
-        echo "::set-env name=GOBIN::$GOBIN"
-        echo "::add-path::$GOPATH"
-        echo "::add-path::$GOBIN"
+        echo "REPOPATH=$GOPATH/src/github.com/$GITHUB_REPOSITORY" >> $GIHTUB_ENV
+        echo "GOPATH=$GOPATH" >> $GIHTUB_ENV
+        echo "GOBIN=$GOBIN" >> $GIHTUB_ENV
+        echo "$GOPATH" >> $GITHUB_PATH
+        echo "$GOBIN" >> $GITHUB_PATH
 
     - name: Install packages
       run: |
