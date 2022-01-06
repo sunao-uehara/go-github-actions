@@ -14,7 +14,7 @@ jobs:
       id: go
 
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
     - name: Fix GOPATH
       # temporary fix
@@ -30,9 +30,9 @@ jobs:
         mkdir -p $GOPATH/src/github.com/$GITHUB_REPOSITORY
         mv $(pwd)/* $GOPATH/src/github.com/$GITHUB_REPOSITORY
         # use github actions' development toolkit to set ENV/PATH...etc
-        echo "REPOPATH=$GOPATH/src/github.com/$GITHUB_REPOSITORY" >> $GIHTUB_ENV
-        echo "GOPATH=$GOPATH" >> $GIHTUB_ENV
-        echo "GOBIN=$GOBIN" >> $GIHTUB_ENV
+        echo "REPOPATH=$GOPATH/src/github.com/$GITHUB_REPOSITORY" >> $GITHUB_ENV
+        echo "GOPATH=$GOPATH" >> $GITHUB_ENV
+        echo "GOBIN=$GOBIN" >> $GITHUB_ENV
         echo "$GOPATH" >> $GITHUB_PATH
         echo "$GOBIN" >> $GITHUB_PATH
 
