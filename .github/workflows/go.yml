@@ -36,16 +36,6 @@ jobs:
         echo "$GOPATH" >> $GITHUB_PATH
         echo "$GOBIN" >> $GITHUB_PATH
 
-    - name: Install packages
-      run: |
-        curl https://glide.sh/get | sh
-
-    - name: Get dependencies
-      run: |
-        cd $REPOPATH
-        $GOPATH/bin/glide -v
-        $GOPATH/bin/glide update
-
     - name: Test
       run: |
         pwd && ls
