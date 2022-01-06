@@ -18,8 +18,8 @@ jobs:
         cd $REPOPATH
         echo "release"
 
-        curl -X POST
+        curl -X POST \
           -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" 
-          https://api.github.com/repos/sunao-uehara/go-github-actions/dispatches
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/sunao-uehara/go-github-actions/dispatches \
           -d '{"event_type":"deploy"}'
