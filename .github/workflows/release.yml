@@ -18,10 +18,32 @@ jobs:
     - name: Release
       run: |
         cd $REPOPATH
-        echo "release"
+        echo $GITHUB_REF
+
+        commit_sha=$(git rev-parse --short HEAD)
+        commit_author=$(git show -s --pretty=%aN)
+        commit_message=$(git show -s --pretty=%s)
+
+        echo "$commit_author"
+        echo "$commit_sha"
+        echo "$commit_message"
+
+        echo $GITHUB_REPOSITORY
+        echo $GITHUB_ACTIONS
+        echo $GITHUB_ACTOR
+        echo $GITHUB_REF
+        echo $GITHUB_REF_NAME
 
         curl -v -X POST \
           -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
           -H "Accept: application/vnd.github.v3+json" \
           https://api.github.com/repos/sunao-uehara/go-github-actions/dispatches \
-          -d '{"event_type":"deploy"}'
+          -d '{
+            "event_type":"deploy"
+            "client_payload": {
+              "path": "/abc/def/resouce.yaml",
+              "version": "",
+              "image": "",
+              "author": ""
+            }
+          }'
