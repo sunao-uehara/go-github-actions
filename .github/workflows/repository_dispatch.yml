@@ -1,7 +1,7 @@
 name: respository_dispatch test
 on:
   repository_dispatch:
-    types: [test, build, deploy]
+    # types: [test, build, deploy]
 
 jobs:
 
