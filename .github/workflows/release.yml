@@ -14,11 +14,12 @@ jobs:
 
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
+      with:
+        fetch-depth: '2'
 
     - name: Release
       run: |
         cd $REPOPATH
-        echo $GITHUB_REF
 
         commit_sha=$(git rev-parse --short HEAD)
         commit_author=$(git show -s --pretty=%aN)
