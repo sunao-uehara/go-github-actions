@@ -12,22 +12,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Check out code into the Go module directory
+    - name: Check out code
       uses: actions/checkout@v2
       with:
         fetch-depth: '2'
+
+    - name: Prerequisites
+      run: |
+        git version
 
     - name: Release
       run: |
         cd $REPOPATH
 
-        commit_sha=$(git rev-parse --short HEAD)
-        commit_author=$(git show -s --pretty=%aN)
-        commit_message=$(git show -s --pretty=%s)
+        # commit_sha=$(git rev-parse --short HEAD)
+        # commit_author=$(git show -s --pretty=%aN)
+        # commit_message=$(git show -s --pretty=%s)
 
-        echo "$commit_author"
-        echo "$commit_sha"
-        echo "$commit_message"
+        # echo "$commit_author"
+        # echo "$commit_sha"
+        # echo "$commit_message"
 
         echo $GITHUB_REPOSITORY
         echo $GITHUB_ACTIONS
