@@ -33,7 +33,6 @@ jobs:
         echo "$commit_message"
 
         echo $GITHUB_REPOSITORY
-        echo $GITHUB_ACTIONS
         echo $GITHUB_ACTOR
         echo $GITHUB_REF
         echo $GITHUB_REF_NAME
@@ -45,9 +44,12 @@ jobs:
           -d '{
             "event_type":"deploy"
             "client_payload": {
+              "repository": "${GITHUB_REPOSITORY}",
               "path": "/abc/def/resouce.yaml",
-              "version": "",
-              "image": "",
-              "author": ""
+              "version": "${GITHUB_REF_NAME}",
+              "image": "test-${GITHUB_REF_NAME}",
+              "author": "${GITHUB_ACTOR}",
+              "sha": "${GITHUB_ACTOR}",
+              "message": "${commit_message}"
             }
           }'
