@@ -24,14 +24,11 @@ jobs:
     - name: Release
       run: |
         cd $REPOPATH
+        commit_message=$(git log -1 --pretty=format:"%s")
 
-        # commit_sha=$(git rev-parse --short HEAD)
-        # commit_author=$(git show -s --pretty=%aN)
-        # commit_message=$(git show -s --pretty=%s)
-
-        # echo "$commit_author"
-        # echo "$commit_sha"
-        # echo "$commit_message"
+        echo ${{ github.actor }}
+        echo ${{ github.sha }}
+        echo "$commit_message"
 
         echo $GITHUB_REPOSITORY
         echo $GITHUB_ACTIONS
