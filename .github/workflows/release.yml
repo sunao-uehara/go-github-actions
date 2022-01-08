@@ -24,7 +24,8 @@ jobs:
 
     - name: Release
       run: |
-        cd $REPOPATH
+        # cd $REPOPATH
+        pwd
         commit_message=$(git log -1 --pretty=format:"%s")
 
         echo ${{ github.actor }}
