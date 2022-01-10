@@ -41,20 +41,15 @@ jobs:
           -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
           -H "Accept: application/vnd.github.v3+json" \
           https://api.github.com/repos/sunao-uehara/go-github-actions/dispatches \
-          -d '{
-            "event_type":"deploy",
-            "client_payload": {
-              "repository": "${GITHUB_REPOSITORY}",
-              "path": "/abc/def/resource.yaml",
-              "version": "${release_version}",
-              "image": "test-${release_version}",
-              "author": "${GITHUB_ACTOR}",
-              "sha": "${{ github.sha }}",
-              "message": "${commit_message}"
+          -d "{
+            \"event_type\":\"deploy\",
+            \"client_payload\": {
+              \"repository\": \"${GITHUB_REPOSITORY}\",
+              \"path\": \"/abc/def/resource.yaml\",
+              \"version\": \"${release_version}\",
+              \"image\": \"test-${release_version}\",
+              \"author\": \"${GITHUB_ACTOR}\",
+              \"sha\": \"${{ github.sha }}\",
+              \"message\": \"${commit_message}\"
             }
-          }'
-
-        echo "---------------"
-        echo "$commit_message"
-        echo $GITHUB_REF_NAME
-        echo $GITHUB_REF
+          }"
