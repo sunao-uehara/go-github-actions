@@ -16,6 +16,12 @@ jobs:
       run: |
         cd $REPOPATH
         echo "deploy"
-        echo ${{ github.event.client_payload.repository }}
         echo "payload: ${{ toJson(github.event.client_payload) }}"
 
+        echo ${{ github.event.client_payload.repository }}
+        echo ${{ github.event.client_payload.path }}
+        echo ${{ github.event.client_payload.version }}
+        echo ${{ github.event.client_payload.image }}
+        echo ${{ github.event.client_payload.author }}
+        echo ${{ github.event.client_payload.sha }}
+        echo ${{ github.event.client_payload.message }}
