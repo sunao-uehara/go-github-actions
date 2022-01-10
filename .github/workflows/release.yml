@@ -46,11 +46,11 @@ jobs:
             "client_payload": {
               "repository": "${GITHUB_REPOSITORY}",
               "path": "/abc/def/resource.yaml",
-              "version": "$release_version",
-              "image": "test-$release_version",
+              "version": "${release_version}",
+              "image": "test-${release_version}",
               "author": "${GITHUB_ACTOR}",
               "sha": "${{ github.sha }}",
-              "message": "$commit_message"
+              "message": "${commit_message}"
             }
           }'
 
